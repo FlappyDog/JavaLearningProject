@@ -19,7 +19,7 @@ public class MinimalWordCount {
 		p.apply(TextIO.read().from("gs://apache-beam-samples/shakespeare/*"))
 			.apply(
 				FlatMapElements
-					.into(TypeDescriptor.strings())
+					.into(TypeDescriptors.strings())
 					.via((String word) -> Arrays.asList(word.split("[^\\p{L}]+")))
 			)
 			.apply(
